@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://initme.github.io">
   <title>zookeeper单机伪集群部署 | fish91</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="zookeeper单机伪集群配置出于高可用的目的，zookeeper一般需要多机器集群部署，但是多数测试或者开发情况下，受限于资源，如何做到集群部署呢？其实可以在单机上部署多个zookeeper实例来模拟集群环境，实现分布式部署的效果。 1、部署新建zookeeper-cluster，在该文件夹里建立三个文件夹server1,server2,server3，模拟三个zookeeper实例，然后每">
+  <meta name="description" content="出于高可用的目的，zookeeper一般需要多机器集群部署，但是多数测试或者开发情况下，受限于资源，如何做到集群部署呢？其实可以在单机上部署多个zookeeper实例来模拟集群环境，实现分布式部署的效果。 1、部署新建zookeeper-cluster，在该文件夹里建立三个文件夹server1,server2,server3，模拟三个zookeeper实例，然后每个文件夹里面解压一个zookee">
 <meta name="keywords" content="中间件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zookeeper单机伪集群部署">
 <meta property="og:url" content="https://initme.github.io/2018/08/03/zookeeper单机伪集群部署/index.html">
 <meta property="og:site_name" content="fish91">
-<meta property="og:description" content="zookeeper单机伪集群配置出于高可用的目的，zookeeper一般需要多机器集群部署，但是多数测试或者开发情况下，受限于资源，如何做到集群部署呢？其实可以在单机上部署多个zookeeper实例来模拟集群环境，实现分布式部署的效果。 1、部署新建zookeeper-cluster，在该文件夹里建立三个文件夹server1,server2,server3，模拟三个zookeeper实例，然后每">
+<meta property="og:description" content="出于高可用的目的，zookeeper一般需要多机器集群部署，但是多数测试或者开发情况下，受限于资源，如何做到集群部署呢？其实可以在单机上部署多个zookeeper实例来模拟集群环境，实现分布式部署的效果。 1、部署新建zookeeper-cluster，在该文件夹里建立三个文件夹server1,server2,server3，模拟三个zookeeper实例，然后每个文件夹里面解压一个zookee">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-03T09:59:55.587Z">
+<meta property="og:updated_time" content="2018-08-03T10:01:08.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zookeeper单机伪集群部署">
-<meta name="twitter:description" content="zookeeper单机伪集群配置出于高可用的目的，zookeeper一般需要多机器集群部署，但是多数测试或者开发情况下，受限于资源，如何做到集群部署呢？其实可以在单机上部署多个zookeeper实例来模拟集群环境，实现分布式部署的效果。 1、部署新建zookeeper-cluster，在该文件夹里建立三个文件夹server1,server2,server3，模拟三个zookeeper实例，然后每">
+<meta name="twitter:description" content="出于高可用的目的，zookeeper一般需要多机器集群部署，但是多数测试或者开发情况下，受限于资源，如何做到集群部署呢？其实可以在单机上部署多个zookeeper实例来模拟集群环境，实现分布式部署的效果。 1、部署新建zookeeper-cluster，在该文件夹里建立三个文件夹server1,server2,server3，模拟三个zookeeper实例，然后每个文件夹里面解压一个zookee">
   
     <link rel="alternative" href="/atom.xml" title="fish91" type="application/atom+xml">
   
@@ -175,7 +175,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="zookeeper单机伪集群配置"><a href="#zookeeper单机伪集群配置" class="headerlink" title="zookeeper单机伪集群配置"></a>zookeeper单机伪集群配置</h2><p>出于高可用的目的，zookeeper一般需要多机器集群部署，但是多数测试或者开发情况下，受限于资源，如何做到集群部署呢？其实可以在单机上部署多个zookeeper实例来模拟集群环境，实现分布式部署的效果。</p>
+        <p>出于高可用的目的，zookeeper一般需要多机器集群部署，但是多数测试或者开发情况下，受限于资源，如何做到集群部署呢？其实可以在单机上部署多个zookeeper实例来模拟集群环境，实现分布式部署的效果。</p>
 <h3 id="1、部署"><a href="#1、部署" class="headerlink" title="1、部署"></a>1、部署</h3><p>新建zookeeper-cluster，在该文件夹里建立三个文件夹server1,server2,server3，模拟三个zookeeper实例，然后每个文件夹里面解压一个zookeeper的下载包，并且还建了几个文件夹，总体结构如下：<br>data,dataLog,logs,zookeeper-x.x.x<br>然后进入其中一个，如server1下面的data目录，创建一个myid的文件，里面写入一个数字，也就是该实例id，这里写1，同样在其他的server2，server3对应的文件夹下面写入对应的数字；</p>
 <h3 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h3><p>进入server1下面的zookeeper-x.x.x，修改zoo.cfg（如果没有，可以把zoo_sample.cfg文件改成zoo.cfg），修改clientPort=3181（自己定义，该实例端口，供客户端连接，不同实例端口不同）,然后在文件末尾添加如下内容：<br>server.1=127.0.0.1:2888:3888<br>server.2=127.0.0.1:2889:3889<br>server.3=127.0.0.1:2890:3890<br>（对应的实例端口不能相同，第一个端口用来集群成员的信息交换，第二个端口是在leader挂掉时专门用来进行选举leader所用）<br>然后按同样的配置server2，server3；</p>
 <h3 id="3、启动服务"><a href="#3、启动服务" class="headerlink" title="3、启动服务"></a>3、启动服务</h3><p>分别进入三个服务器的zookeeper-x.x.x/bin目录下，启动服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./zkServer.sh start</span><br></pre></td></tr></table></figure></p>
