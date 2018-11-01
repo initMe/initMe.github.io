@@ -152,6 +152,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Akka" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/01/Akka/">Akka</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/01/Akka/" class="archive-article-date">
+  	<time datetime="2018-11-01T08:13:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、Actor模型"><a href="#一、Actor模型" class="headerlink" title="一、Actor模型"></a>一、Actor模型</h3><blockquote>
+<p>actor模型在计算机用语里表示一种并行计算的数学模型，它把actors当做通用的并行计算原语。一个actor可以对接收到的消息做出响应，如进行本地决策，或者创建更多的actor，或者发送更多的消息，或者觉得如何处理下一条消息。每个atctor都可以自行改变自己的节点状态，但是只能通过消息的形式去影响其他的actor。（这样则避免使用锁）                                                 —- from wikipedia</p>
+</blockquote>
+<h3 id="二、Akka"><a href="#二、Akka" class="headerlink" title="二、Akka"></a>二、Akka</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>akka是一个分布式并行编程框架，这么说太过简单，我们看下官网上的详细介绍：</p>
+<blockquote>
+<p>Akka是一个可以创建高并发、分布式、可恢复的基于消息驱动的Java和Scala应用的工具集，它致力于更加简单地构建强大的响应式、分布式和高并发的应用程序。</p>
+</blockquote>
+<p>Akka特点：</p>
+<ul>
+<li>使用Actors和Streams简化并发编程和分布式编程，更加有效地利用服务器资源；</li>
+<li>弹性设计，可以构建具有自恢复和高容错的系统；</li>
+<li>高性能，单机每秒消息处理能力可达5000万，1GB堆内存可创建250万个actor；</li>
+<li>去中心化，构建无单点故障的分布式系统，节点间负载均衡和智能路由，使用CRDTs可保证数据最终一致性；</li>
+<li>响应式编程，具有背压机制的异步非阻塞流式处理；</li>
+</ul>
+<p><strong><em>  backpressure(背压)通常产生于这样的场景：短时负载高峰导致系统接收数据的速率远高于它处理数据的速率，背压机制则用于这种情况</em></strong>  <a href="https://blog.csdn.net/qq_21125183/article/details/80708142" target="_blank" rel="noopener">Link</a></p>
+<h4 id="2、概念"><a href="#2、概念" class="headerlink" title="2、概念"></a>2、概念</h4><p><strong>Actor</strong> : 是Akka的最小执行单元，具有自己的状态和行为，一个接收消息的邮箱，可以创建多个的子Actor并且会生产一个监视器，所有这一切的细节都被封装在Actor Reference背后，通过Actor Reference对Actor进行操作，另外，所有的actor只能由其他的actor创建，也就是说actor之间具有层次关系，父级actor会作为所有子actor的监督责任人（supervisor）,对子actor的错误做出决策，子actor发生错误时会暂停自己和及其对应的所有子actor，并且会发送失败消息给父级actor，等待父actor做出结果</p>
+<p><strong>Actor References, Paths and Addresses</strong> : actor reference是ActorRef的子类，其首要任务是代表它对应的actor去和其他actor进行通信。actor path是actor全局唯一的字符序列名称，类似于文件系统的命名规则，由根节点递归命名，如”akka://my-sys/user/service-a/worker1”，”akka.tcp:<a href="mailto://my-sys@host.example.com" target="_blank" rel="noopener">//my-sys@host.example.com</a>:5678/user/service-b”，参看下图：</p>
+<p><img src="https://doc.akka.io/docs/akka/current/general/ActorPath.png" alt="actor system relationShip"></p>
+<p>本地actor和远程actor</p>
+<p><img src="https://doc.akka.io/docs/akka/current/general/RemoteDeployment.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/01/Akka/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-zookeeper单机伪集群部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -412,11 +495,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
             
             <div class="clearfix"></div>

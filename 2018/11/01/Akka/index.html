@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://initme.github.io">
   <title>Akka | fish91</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###一、Actor模型  actor模型在计算机用语里表示一种并行计算的数学模型，它把actors当做通用的并行计算原语。一个actor可以对接收到的消息做出响应，如进行本地决策，或者创建更多的actor，或者发送更多的消息，或者觉得如何处理下一条消息。每个atctor都可以自行改变自己的节点状态，但是只能通过消息的形式去影响其他的actor。（这样则避免使用锁）">
+  <meta name="description" content="一、Actor模型 actor模型在计算机用语里表示一种并行计算的数学模型，它把actors当做通用的并行计算原语。一个actor可以对接收到的消息做出响应，如进行本地决策，或者创建更多的actor，或者发送更多的消息，或者觉得如何处理下一条消息。每个atctor都可以自行改变自己的节点状态，但是只能通过消息的形式去影响其他的actor。（这样则避免使用锁）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Akka">
 <meta property="og:url" content="https://initme.github.io/2018/11/01/Akka/index.html">
 <meta property="og:site_name" content="fish91">
-<meta property="og:description" content="###一、Actor模型  actor模型在计算机用语里表示一种并行计算的数学模型，它把actors当做通用的并行计算原语。一个actor可以对接收到的消息做出响应，如进行本地决策，或者创建更多的actor，或者发送更多的消息，或者觉得如何处理下一条消息。每个atctor都可以自行改变自己的节点状态，但是只能通过消息的形式去影响其他的actor。（这样则避免使用锁）">
+<meta property="og:description" content="一、Actor模型 actor模型在计算机用语里表示一种并行计算的数学模型，它把actors当做通用的并行计算原语。一个actor可以对接收到的消息做出响应，如进行本地决策，或者创建更多的actor，或者发送更多的消息，或者觉得如何处理下一条消息。每个atctor都可以自行改变自己的节点状态，但是只能通过消息的形式去影响其他的actor。（这样则避免使用锁）">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://doc.akka.io/docs/akka/current/general/ActorPath.png">
 <meta property="og:image" content="https://doc.akka.io/docs/akka/current/general/RemoteDeployment.png">
-<meta property="og:updated_time" content="2018-11-01T08:15:03.711Z">
+<meta property="og:updated_time" content="2018-11-01T08:24:37.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Akka">
-<meta name="twitter:description" content="###一、Actor模型  actor模型在计算机用语里表示一种并行计算的数学模型，它把actors当做通用的并行计算原语。一个actor可以对接收到的消息做出响应，如进行本地决策，或者创建更多的actor，或者发送更多的消息，或者觉得如何处理下一条消息。每个atctor都可以自行改变自己的节点状态，但是只能通过消息的形式去影响其他的actor。（这样则避免使用锁）">
+<meta name="twitter:description" content="一、Actor模型 actor模型在计算机用语里表示一种并行计算的数学模型，它把actors当做通用的并行计算原语。一个actor可以对接收到的消息做出响应，如进行本地决策，或者创建更多的actor，或者发送更多的消息，或者觉得如何处理下一条消息。每个atctor都可以自行改变自己的节点状态，但是只能通过消息的形式去影响其他的actor。（这样则避免使用锁）">
 <meta name="twitter:image" content="https://doc.akka.io/docs/akka/current/general/ActorPath.png">
   
     <link rel="alternative" href="/atom.xml" title="fish91" type="application/atom+xml">
@@ -177,12 +177,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###一、Actor模型</p>
-<blockquote>
+        <h3 id="一、Actor模型"><a href="#一、Actor模型" class="headerlink" title="一、Actor模型"></a>一、Actor模型</h3><blockquote>
 <p>actor模型在计算机用语里表示一种并行计算的数学模型，它把actors当做通用的并行计算原语。一个actor可以对接收到的消息做出响应，如进行本地决策，或者创建更多的actor，或者发送更多的消息，或者觉得如何处理下一条消息。每个atctor都可以自行改变自己的节点状态，但是只能通过消息的形式去影响其他的actor。（这样则避免使用锁）                                                 —- from wikipedia</p>
 </blockquote>
-<p>###二、Akka</p>
-<h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>akka是一个分布式并行编程框架，这么说太过简单，我们看下官网上的详细介绍：</p>
+<h3 id="二、Akka"><a href="#二、Akka" class="headerlink" title="二、Akka"></a>二、Akka</h3><h4 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h4><p>akka是一个分布式并行编程框架，这么说太过简单，我们看下官网上的详细介绍：</p>
 <blockquote>
 <p>Akka是一个可以创建高并发、分布式、可恢复的基于消息驱动的Java和Scala应用的工具集，它致力于更加简单地构建强大的响应式、分布式和高并发的应用程序。</p>
 </blockquote>
